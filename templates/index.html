@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class='txe'>Works log</h2>
+
+{% for item in news%}
+<h2>Actions # {{item.id}}</h2>    
+    <table>
+        <tr>
+            <th style="background-color: rgb(110, 110, 110);">Title of activity</th>
+            <th style="background-color: rgb(110, 110, 110);">Team Leader</th>
+            <th style="background-color: rgb(110, 110, 110);">Duration</th>
+            <th style="background-color: rgb(110, 110, 110);">List of collaborators</th>
+            <th style="background-color: rgb(110, 110, 110);">Is finished</th>
+        </tr>
+        <tr>
+            <td style="background-color: rgb(155, 155, 155);">{{ item.job }}</td>
+            <td style="background-color: rgb(155, 155, 155);">{{ item.user.name }}{{ item.user.surname }}</td>
+            <td style="background-color: rgb(155, 155, 155);">{{ item.work_size }}</td>
+            <td style="background-color: rgb(155, 155, 155);">{{ item.collaborators }}</td>
+            {% if item.is_finished %}
+                <td style="background-color: rgb(155, 155, 155);">is finished</td>
+            {% else %}
+                <td style="background-color: rgb(155, 155, 155);">is not finished</td>
+            {% endif %}
+        </tr>
+    </table>
+
+
+{% endfor %}
+{% endblock %}
